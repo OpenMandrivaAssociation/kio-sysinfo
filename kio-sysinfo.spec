@@ -1,13 +1,13 @@
 %define __libtoolize    /bin/true
 
-Name:		sysinfo
+Name:		kio-sysinfo
 Version:	1.8.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 Summary:	KIO Slave sysinfo:/
 License:	LGPL
 Group:          System/Libraries
 URL:            http://www.kde-apps.org/content/show.php?content=58704
-Source0:	http://download.tuxfamily.org/kiosysinfo/Sources/kio-%name-%version.tar.gz
+Source0:	http://download.tuxfamily.org/kiosysinfo/Sources/%name-%version.tar.gz
 # fwang: Source1,2 from http://www.kde-look.org/content/show.php?content=61727
 # Source1:	48x48/apps/kcmprocessor.png
 Source1:	cpu.png
@@ -21,6 +21,7 @@ BuildRequires:  hal-devel
 BuildRequires:  dbus-devel
 BuildRequires:	libhd-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
+Obsoletes:	sysinfo < 1.8.2-4
 
 %description
 KIO Slave sysinfo:/. It shows various information about your pc, 
@@ -28,7 +29,7 @@ like cpu, ram. kernel version, exc. It also shows the removable
 devices and partition (total space/available space) and you can open,
 mount and unmount it from this KIO slave.
 
-%files -f kio_%name.lang
+%files -f kio_sysinfo.lang
 %defattr(-,root,root)
 %{_libdir}/kde3/*
 %{_datadir}/applications/kde/kfmclient_sysinfo.desktop
@@ -40,7 +41,7 @@ mount and unmount it from this KIO slave.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n kio-%{name}-%{version}
+%setup -q -n %{name}-%{version}
 %patch0 -p0
 %patch1 -p1
 
@@ -63,7 +64,7 @@ rm -rf %{buildroot}
 #move mime to proper place
 mv %buildroot/%{_datadir}/mimelnk/applications  %buildroot/%{_datadir}/mimelnk/application
 
-%{find_lang} kio_%name
+%{find_lang} kio_sysinfo
 
 %clean
 rm -rf %{buildroot}
