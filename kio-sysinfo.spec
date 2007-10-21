@@ -2,7 +2,7 @@
 
 Name:		kio-sysinfo
 Version:	1.8.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 Summary:	KIO Slave sysinfo:/
 License:	LGPL
 Group:          System/Libraries
@@ -42,7 +42,7 @@ mount and unmount it from this KIO slave.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p0
+%patch0 -p1
 %patch1 -p1
 
 cp -f %SOURCE1 about/images/cpu.png
