@@ -20,6 +20,7 @@ BuildRequires:  kdelibs-devel
 BuildRequires:  hal-devel
 BuildRequires:  dbus-devel
 BuildRequires:	libhd-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 Obsoletes:	sysinfo < 1.8.2-4
 
 %description
