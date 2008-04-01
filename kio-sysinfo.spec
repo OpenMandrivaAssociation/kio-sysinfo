@@ -1,11 +1,15 @@
 Name: kio-sysinfo
 Version: 1.8.2
-Release: %mkrel 7
+Release: %mkrel 8
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
 URL: http://www.kde-apps.org/content/show.php?content=58704
 Source0: http://download.tuxfamily.org/kiosysinfo/Sources/%name-%version.tar.gz
+# Source1:	48x48/apps/kcmprocessor.png
+Source1:	cpu.png
+# Source2:	48x48/devices/system.png
+Source2:	sysinfo.png
 Patch0: kio-sysinfo-1.8.2-suse-10.3.patch
 Patch1: kio-sysinfo-1.8.2-uz-translation.patch
 BuildRequires: kdelibs-devel
@@ -36,6 +40,9 @@ mount and unmount it from this KIO slave.
 %setup -q -n %{name}-%{version}
 %patch0 -p1
 %patch1 -p1
+
+%__cp -f %SOURCE1 about/images/cpu.png
+%__cp -f %SOURCE2 about/images/sysinfo.png
 
 %build
 make -f admin/Makefile.common
