@@ -1,6 +1,6 @@
 Name: kio-sysinfo
 Version: 1.8.2
-Release: %mkrel 8
+Release: %mkrel 9
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
@@ -27,12 +27,12 @@ mount and unmount it from this KIO slave.
 
 %files -f kio_sysinfo.lang
 %defattr(-,root,root)
-%{_libdir}/kde3/*
-%{_datadir}/applications/kde/kfmclient_sysinfo.desktop
-%{_datadir}/apps/sysinfo
-%{_datadir}/mimelnk/application/x-sysinfo.desktop
-%{_datadir}/services/ksysinfopart.desktop
-%{_datadir}/services/sysinfo.protocol
+%{_kde3_libdir}/kde3/*
+%{_kde3_datadir}/applications/kde/kfmclient_sysinfo.desktop
+%{_kde3_appsdir}/sysinfo
+%{_kde3_datadir}/mimelnk/application/x-sysinfo.desktop
+%{_kde3_datadir}/services/ksysinfopart.desktop
+%{_kde3_datadir}/services/sysinfo.protocol
 
 #--------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ mount and unmount it from this KIO slave.
 %build
 make -f admin/Makefile.common
 
-%configure2_5x \
+%configure_kde3 \
 	--with-qt-dir=%{qt3dir} \
 	--with-qt-includes=%{qt3include} \
 	--with-qt-libraries=%{qt3lib}
