@@ -1,6 +1,6 @@
 Name: kio-sysinfo
 Version: 1.8.2
-Release: %mkrel 9
+Release: %mkrel 10
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
