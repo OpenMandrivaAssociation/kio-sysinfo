@@ -1,18 +1,19 @@
+%define oname  kio_sysinfo
+%define svn    822583
+
 Name: kio-sysinfo
-Version: 1.8.2
-Release: %mkrel 10
+Version: 1.8.3
+Release: %mkrel 0.%svn.1
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
 URL: http://www.kde-apps.org/content/show.php?content=58704
-Source0: http://download.tuxfamily.org/kiosysinfo/Sources/%name-%version.tar.gz
+Source0: http://download.tuxfamily.org/kiosysinfo/Sources/%name-%version.%svn.tar.bz2
 # Source1:	48x48/apps/kcmprocessor.png
 Source1:	cpu.png
 # Source2:	48x48/devices/system.png
 Source2:	sysinfo.png
-Patch0: kio-sysinfo-1.8.2-suse-10.3.patch
-Patch1: kio-sysinfo-1.8.2-uz-translation.patch
-BuildRequires: kdelibs-devel
+BuildRequires: kdelibs4-devel
 BuildRequires: hal-devel
 BuildRequires: dbus-devel
 BuildRequires: libhd-devel
@@ -27,37 +28,29 @@ mount and unmount it from this KIO slave.
 
 %files -f kio_sysinfo.lang
 %defattr(-,root,root)
-%{_kde3_libdir}/kde3/*
-%{_kde3_datadir}/applications/kde/kfmclient_sysinfo.desktop
-%{_kde3_appsdir}/sysinfo
-%{_kde3_datadir}/mimelnk/application/x-sysinfo.desktop
-%{_kde3_datadir}/services/ksysinfopart.desktop
-%{_kde3_datadir}/services/sysinfo.protocol
+%{_kde_libdir}/kde4/*
+%{_kde_appsdir}/sysinfo
+%{_kde_datadir}/applications/kde4/kfmclient_sysinfo.desktop
+%{_kde_datadir}/kde4/services/ksysinfopart.desktop
+%{_kde_datadir}/kde4/services/sysinfo.protocol
+%{_kde_datadir}/mime/packages/x-sysinfo.xml
 
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}
 
-%__cp -f %SOURCE1 about/images/cpu.png
-%__cp -f %SOURCE2 about/images/sysinfo.png
+#%__cp -f %SOURCE1 about/images/cpu.png
+#%__cp -f %SOURCE2 about/images/sysinfo.png
 
 %build
-make -f admin/Makefile.common
-
-%configure_kde3 \
-	--with-qt-dir=%{qt3dir} \
-	--with-qt-includes=%{qt3include} \
-	--with-qt-libraries=%{qt3lib}
-
+%cmake_kde4
 %make
 
 %install
 rm -rf %buildroot
 
-%makeinstall_std
+%makeinstall_std -C build
 
 %{find_lang} kio_sysinfo
 
