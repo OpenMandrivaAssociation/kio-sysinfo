@@ -7,8 +7,8 @@ Release: %mkrel 0.%svn.1
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
-URL: http://www.kde-apps.org/content/show.php?content=58704
-Source0: http://download.tuxfamily.org/kiosysinfo/Sources/%name-%version.%svn.tar.bz2
+URL:     http://websvn.kde.org/trunk/playground/base/kio_sysinfo/ 
+Source0: %name-%version.%svn.tar.bz2
 # Source1:	48x48/apps/kcmprocessor.png
 Source1:	cpu.png
 # Source2:	48x48/devices/system.png
