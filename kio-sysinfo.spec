@@ -13,6 +13,7 @@ Source0: %name-%version.%svn.tar.bz2
 Source1:	cpu.png
 # Source2:	48x48/devices/system.png
 Source2:	sysinfo.png
+Patch0:        kio-sysinfo-1.8.3-fix-build.patch
 BuildRequires: kdelibs4-devel
 BuildRequires: hal-devel
 BuildRequires: dbus-devel
@@ -39,11 +40,12 @@ mount and unmount it from this KIO slave.
 
 %prep
 %setup -q -n %{name}
-
+%patch0 -p1
 #%__cp -f %SOURCE1 about/images/cpu.png
 #%__cp -f %SOURCE2 about/images/sysinfo.png
 
 %build
+%define _disable_ld_no_undefined 1
 %cmake_kde4
 %make
 
