@@ -3,7 +3,7 @@
 
 Name: kio-sysinfo
 Version: 1.8.3
-Release: %mkrel 0.%svn.5
+Release: %mkrel 0.%svn.6
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
@@ -20,6 +20,7 @@ BuildRequires: dbus-devel
 BuildRequires: libhd-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}
 Obsoletes: sysinfo < 1.8.2-4
+Obsoletes: kde3-kio-sysinfo  < 1.8.2-11
 
 %description
 KIO Slave sysinfo:/. It shows various information about your pc, 
