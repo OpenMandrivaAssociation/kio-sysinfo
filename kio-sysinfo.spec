@@ -3,7 +3,7 @@
 
 Name: kio-sysinfo
 Version: 1.8.3
-Release: %mkrel 0.%svn.7
+Release: %mkrel 0.%svn.8
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
