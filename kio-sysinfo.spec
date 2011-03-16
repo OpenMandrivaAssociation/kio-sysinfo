@@ -3,7 +3,7 @@
 
 Name: kio-sysinfo
 Version: 1.8.3
-Release: %mkrel 0.%svn.8
+Release: %mkrel 0.%svn.9
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
@@ -15,7 +15,6 @@ Source1:	cpu.png
 Source2:	sysinfo.png
 Patch0:        kio-sysinfo-1.8.3-fix-build.patch
 BuildRequires: kdelibs4-devel
-BuildRequires: hal-devel
 BuildRequires: dbus-devel
 BuildRequires: libhd-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}
