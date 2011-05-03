@@ -1,21 +1,19 @@
+# svn co svn://anonsvn.kde.org/home/kde/trunk/playground/base/kio_sysinfo/
 %define oname  kio_sysinfo
-%define svn    822583
+%define svn    1230316
 
 Name: kio-sysinfo
 Version: 1.8.3
-Release: %mkrel 0.%svn.9
+Release: %mkrel -c %svn 1
 Summary: KIO Slave sysinfo:/
 License: LGPL
 Group: System/Libraries
 URL:     http://websvn.kde.org/trunk/playground/base/kio_sysinfo/ 
-Source0: %name-%version.%svn.tar.bz2
-# Source1:	48x48/apps/kcmprocessor.png
+Source0: %oname-%svn.tar.xz
 Source1:	cpu.png
-# Source2:	48x48/devices/system.png
 Source2:	sysinfo.png
-Patch0:        kio-sysinfo-1.8.3-fix-build.patch
 BuildRequires: kdelibs4-devel
-BuildRequires: dbus-devel
+#BuildRequires: dbus-devel
 BuildRequires: libhd-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}
 Obsoletes: sysinfo < 1.8.2-4
@@ -39,20 +37,16 @@ mount and unmount it from this KIO slave.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
-#%__cp -f %SOURCE1 about/images/cpu.png
-#%__cp -f %SOURCE2 about/images/sysinfo.png
+%setup -qn %{oname}
 
 %build
-%define _disable_ld_no_undefined 1
-%cmake_kde4
+%cmake_kde4 -DSYSINFO_DISTRO:STRING=mandriva
 %make
 
 %install
 rm -rf %buildroot
 
-%makeinstall_std -C build
+%makeinstall_std
 
 %{find_lang} kio_sysinfo
 
