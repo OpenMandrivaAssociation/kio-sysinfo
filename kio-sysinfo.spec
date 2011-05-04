@@ -13,7 +13,6 @@ Source0: %oname-%svn.tar.xz
 Source1:	cpu.png
 Source2:	sysinfo.png
 BuildRequires: kdelibs4-devel
-#BuildRequires: dbus-devel
 BuildRequires: libhd-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}
 Obsoletes: sysinfo < 1.8.2-4
@@ -46,7 +45,7 @@ mount and unmount it from this KIO slave.
 %install
 rm -rf %buildroot
 
-%makeinstall_std
+%makeinstall_std -C build
 
 %{find_lang} kio_sysinfo
 
