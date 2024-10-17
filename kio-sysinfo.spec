@@ -8,7 +8,7 @@ Version:	1.8.3
 Release:	0.%{svn}.2
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://websvn.kde.org/trunk/playground/base/kio_sysinfo/ 
+Url:		https://websvn.kde.org/trunk/playground/base/kio_sysinfo/ 
 Source0:	%{oname}-%{svn}.tar.xz
 Source1:	cpu.png
 Source2:	sysinfo.png
