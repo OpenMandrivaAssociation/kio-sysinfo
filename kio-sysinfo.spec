@@ -12,6 +12,7 @@ Url:		https://websvn.kde.org/trunk/playground/base/kio_sysinfo/
 Source0:	%{oname}-%{svn}.tar.xz
 Source1:	cpu.png
 Source2:	sysinfo.png
+BuildRequires:	make
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(hwinfo)
 
